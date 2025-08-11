@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Uni Buddy Finder</title>
+  <link rel="stylesheet" href="form.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="form.js" defer></script>
+</head>
+<body>
+  <header class="main-header">
+    <h1 class="site-title"><i class="fas fa-user-friends"></i> Uni Buddy Finder</h1>
+  </header>
+
+  <main>
+    <section class="contact-section">
+      <h2><i class="fas fa-envelope-open-text"></i> Got a question, idea, or just want to say hi?</h2>
+      <p class="intro-text">Whether you're looking for a study partner, have feedback, or need help getting started, we’d love to hear from you!</p>
+
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="yourName">Your Name</label>
+          <input type="text" id="yourName" name="yourName" placeholder="e.g., Emma Watson" required />
+        </div>
+
+        <div class="form-group">
+          <label for="yourEmail">Your University Email</label>
+          <input type="email" id="yourEmail" name="yourEmail" placeholder="e.g., emma@university.edu" required />
+        </div>
+
+        <div class="form-group">
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic" required>
+            <option value="">-- Choose a topic --</option>
+            <option value="partner">I need help finding a study buddy</option>
+            <option value="feedback">I have feedback about the site</option>
+            <option value="question">I have a question</option>
+            <option value="other">Something else!</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="yourMessage">Your Message</label>
+          <textarea id="yourMessage" name="yourMessage" rows="4" placeholder="Write your message here..." required></textarea>
+        </div>
+
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+        <p id="formSuccess" class="success-message">🎉 Thanks for reaching out! We’ll get back to you faster than you can brew a cup of coffee ☕</p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Uni Buddy Finder | Built by students, for students ❤</p>
+  </footer>
+
+  <button id="backToTop" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+</body>
+</html>
