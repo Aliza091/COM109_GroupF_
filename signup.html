@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Uni Buddy Finder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="login-wrapper">
+      <!-- Header -->
+      <div class="header">
+        <div class="logo">🔑</div>
+        <h2>Create an account</h2>
+        <p>Sign up to get started</p>
+      </div>
+
+      <!-- Sign Up Form -->
+      <div class="form-container">
+        <form id="signupForm" class="login-form">
+          <!-- General Error -->
+          <div id="generalError" class="error-message general-error" style="display: none;">
+            <p></p>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <div class="input-wrapper">
+              <span class="input-icon">📧</span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                autocomplete="email"
+              />
+            </div>
+            <div class="error-message" id="emailError" aria-live="polite"></div>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+              <span class="input-icon">🔒</span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="new-password"
+              />
+              <button type="button" class="password-toggle" id="passwordToggle">
+                <span id="eyeIcon">👁️</span>
+              </button>
+            </div>
+            <div class="error-message" id="passwordError" aria-live="polite"></div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="input-wrapper">
+              <span class="input-icon">🔒</span>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm your password"
+                autocomplete="new-password"
+              />
+              <button type="button" class="password-toggle" id="confirmPasswordToggle">
+                <span id="eyeIconConfirm">👁️</span>
+              </button>
+            </div>
+            <div class="error-message" id="confirmPasswordError" aria-live="polite"></div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span class="btn-text">Sign Up</span>
+            <div class="loading-spinner" style="display: none;">
+              <div class="spinner"></div>
+              <span>Creating account...</span>
+            </div>
+          </button>
+        </form>
+
+        <!-- Login Link -->
+        <div class="signup-link">
+          <p>Already have an account? <a href="index.html" id="loginLink">Sign in</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="signup-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Uni Buddy Finder</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <main>
+    <h1>Find Your Uni Buddy</h1>
+
+    <form id="profile-form" class="form-section" enctype="multipart/form-data">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" />
+
+      <label for="modules">Select Your Modules:</label>
+      <select id="modules" name="modules" multiple size="6">
+        <option value="COM161">Problem Solving for Computing</option>
+        <option value="COM188">Innovation and Society</option>
+        <option value="COM123">Introduction to Databases</option>
+        <option value="COM125">Client Side Development</option>
+        <option value="COM115">Mathematics for Computing</option>
+        <option value="COM130">Physical Computing</option>
+        <option value="COM120">Programming in Practice</option>
+        <option value="COM240">Systems Security</option>
+        <option value="COM245">Computer Networking</option>
+        <option value="COM250">Data Analytics</option>
+        <option value="COM260">Server Side Development</option>
+        <option value="COM270">Software Product & Process Management</option>
+        <option value="COM310">Full Stack Strategies & Development</option>
+        <option value="COM315">Cloud Native Development</option>
+        <option value="COM320">Computing Systems Project</option>
+        <option value="COM325">Artificial Intelligence</option>
+        <option value="COM330">Embedded Systems</option>
+      </select>
+
+      <label for="studyTime">Preferred Study Time:</label>
+      <select id="studyTime" name="studyTime">
+        <option value="">--Select--</option>
+        <option value="Morning">Morning</option>
+        <option value="Afternoon">Afternoon</option>
+        <option value="Evening">Evening</option>
+      </select>
+
+      <label for="studyStyle">Preferred Study Style:</label>
+      <select id="studyStyle" name="studyStyle">
+        <option value="">--Select--</option>
+        <option value="Solo">Solo</option>
+        <optgroup label="Group">
+          <option value="2">Group of 2</option>
+          <option value="3">Group of 3</option>
+          <option value="4">Group of 4</option>
+        </optgroup>
+      </select>
+
+      <label for="photo">Upload Photo (required for verification):</label>
+      <input type="file" id="photo" name="photo" accept="image/*" />
+
+      <button type="submit">Find Study Buddies</button>
+    </form>
+
+    <div id="verification-message"></div>
+
+    <section>
+      <h2>Matched Study Buddies</h2>
+      <div id="matches-container">
+        <p>Fill and Submit to get your matches.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Uni Buddy Finder</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="dashboard.js"></script>
+
+
+</body>
+</html>
