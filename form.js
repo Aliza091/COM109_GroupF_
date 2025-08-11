@@ -16,8 +16,8 @@ $(document).ready(function () {
   });
 
   // Scroll back to top smoothly
-  // $("#backToTop").click(function () {
-  //   $("html, body").animate({ scrollTop: 0 }, 600);
-  //   return false;
-  // });
+  $("#backToTop").click(function () {
+    $("html, body").animate({ scrollTop: 0 }, 600);
+    return false;
+  });
 });
