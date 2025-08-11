@@ -1,4 +1,11 @@
 $(document).ready(function () {
+  // Check login status
+  if (localStorage.getItem('isLoggedIn') !== 'true') {
+    // Not logged in, redirect to signin page
+    window.location.href = 'signin.html';
+  }
+
+
   // Example old profiles (pre-existing users)
   const oldProfiles = [
     {
@@ -82,4 +89,8 @@ $(document).ready(function () {
       $("#matches-container").html("<p>No matches found. Try adjusting your preferences.</p>");
     }
   });
+  $('#logoutBtn').on('click', function() {
+  localStorage.removeItem('isLoggedIn');
+  window.location.href = 'signin.html';
+});
 });

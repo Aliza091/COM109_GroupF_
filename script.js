@@ -1,30 +1,39 @@
 $(document).ready(function () {
-  // Toggle password visibility
+  // Password toggle button
+  $("ul li").hover(
+    function () {
+      $(this).css("background-color", "#eef5ff");
+    },
+    function () {
+      $(this).css("background-color", "" );
+    }
   $("#passwordToggle").on("click", function () {
     const passwordInput = $("#password");
     const eyeIcon = $("#eyeIcon");
 
     const type = passwordInput.attr("type") === "password" ? "text" : "password";
     passwordInput.attr("type", type);
-
-    // Toggle eye icon (optional)
     eyeIcon.text(type === "password" ? "👁️" : "🙈");
   });
 
-  // Handle form submission
-  $("#loginForm").on("submit", function (e) {
-    e.preventDefault(); // Prevent default form submission
+  // Email validation helper
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
 
-    // Clear previous error messages
+  // Login form submit handler
+  $("#loginForm").on("submit", function (e) {
+    e.preventDefault();
+
+    // Clear previous errors and hide general error
     $(".error-message").text("");
     $("#generalError").hide();
 
-    // Get form values
     const email = $("#email").val().trim();
     const password = $("#password").val().trim();
     let hasError = false;
 
-    // Basic validation
     if (!email) {
       $("#emailError").text("Email is required.");
       hasError = true;
@@ -40,20 +49,18 @@ $(document).ready(function () {
 
     if (hasError) return;
 
-    // Show loading spinner
+    // Show spinner, hide button text
     $(".btn-text").hide();
     $(".loading-spinner").show();
 
-    // Simulate async login (e.g., AJAX request)
-    setTimeout(function () {
+    // Simulate login delay
+    setTimeout(() => {
       $(".btn-text").show();
       $(".loading-spinner").hide();
 
-      // Demo check (you can replace with actual AJAX logic)
       if (email === "admin@example.com" && password === "password123") {
-        alert("Login successful!");
-        // Redirect or load dashboard
-        window.location.href = "dashboard.html"; // Replace with real page
+        localStorage.setItem("isLoggedIn", "true");
+        window.location.href = "dashboard.html";
       } else {
         $("#generalError p").text("Invalid email or password.");
         $("#generalError").show();
@@ -61,14 +68,9 @@ $(document).ready(function () {
     }, 1500);
   });
 
-  // Email validation helper
-  function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  }
-
+  // Signup link click handler
   $("#signupLink").on("click", function (e) {
-    e.preventDefault();  // Prevent default anchor behavior
-    window.location.href = "signup.html";  // Redirect to signup page
+    e.preventDefault();
+    window.location.href = "signup.html";
   });
 });
