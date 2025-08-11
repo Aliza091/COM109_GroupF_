@@ -1,10 +1,16 @@
 $(document).ready(function () {
-  // Check login status
-  if (localStorage.getItem('isLoggedIn') !== 'true') {
-    // Not logged in, redirect to signin page
-    window.location.href = 'signin.html';
-  }
+  console.log("Dashboard loaded");
 
+  // Get login status from localStorage
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  console.log("isLoggedIn:", isLoggedIn);
+
+  // Redirect if not logged in
+  if (isLoggedIn !== 'true') {
+    console.log("Redirecting to signin.html because user is not logged in.");
+    window.location.href = 'signin.html';
+    return;
+  }
 
   // Example old profiles (pre-existing users)
   const oldProfiles = [
