@@ -1,12 +1,13 @@
 $(document).ready(function () {
   // Password toggle button
   $("ul li").hover(
-    function () {
-      $(this).css("background-color", "#eef5ff");
-    },
-    function () {
-      $(this).css("background-color", "" );
-    }
+  function () {
+    $(this).css("background-color", "#eef5ff");
+  },
+  function () {
+    $(this).css("background-color", "");
+  }
+); 
   $("#passwordToggle").on("click", function () {
     const passwordInput = $("#password");
     const eyeIcon = $("#eyeIcon");
@@ -60,7 +61,7 @@ $(document).ready(function () {
 
       if (email === "admin@example.com" && password === "password123") {
         localStorage.setItem("isLoggedIn", "true");
-        window.location.href = "dashboard.html";
+        window.location.href = "/dashboard.html";
       } else {
         $("#generalError p").text("Invalid email or password.");
         $("#generalError").show();

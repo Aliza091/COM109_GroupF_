@@ -71,7 +71,7 @@ $(document).ready(function () {
 
       // For demo, just alert success and redirect to login
       alert("Account created successfully!");
-      window.location.href = "index.html"; // your login page
+      window.location.href = "dashboard.html"; // your login page
     }, 1500);
   });
 
