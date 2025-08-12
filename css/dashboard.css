@@ -1,3 +1,11 @@
+
+#dateTimeDisplay {
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -97,6 +105,7 @@ footer{
 }
 
 .match-card {
+  animation: fadeIn 0.5s ease-in-out;
   display: flex;
   flex-direction: column; 
   align-items: center;
@@ -109,6 +118,11 @@ footer{
   border: 1px solid #ccc;
   max-width: 300px;
 }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .profile-pic {
   width: 50px;
   height: 50px;

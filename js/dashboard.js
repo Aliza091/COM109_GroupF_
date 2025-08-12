@@ -1,6 +1,47 @@
 $(document).ready(function () {
   console.log("Dashboard loaded");
 
+  // Date and Time display
+  function updateDateTime() {
+    const now = new Date();
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+
+    const dateStr = now.toLocaleDateString(undefined, options);
+    const timeStr = now.toLocaleTimeString();
+
+    $("#dateTimeDisplay").text(`📅 ${dateStr} ⏰ ${timeStr}`);
+  }
+
+  updateDateTime();
+  setInterval(updateDateTime, 20000);
+
+  // Cookie helper functions
+  function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + expires + "; path=/";
+  }
+
+  function getCookie(name) {
+    return document.cookie.split("; ").reduce((res, c) => {
+      const [k, v] = c.split("=");
+      return k === name ? decodeURIComponent(v) : res;
+    }, "");
+  }
+
+  // Show welcome if userName cookie exists
+  let userName = getCookie("userName");
+  if (userName) {
+    $("<p>")
+      .text(`👋 Welcome back, ${userName}!`)
+      .css({ "font-weight": "bold", "margin-bottom": "10px" })
+      .insertBefore("#profile-form");
+  }
+
   // Get login status from localStorage
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   console.log("isLoggedIn:", isLoggedIn);
@@ -9,11 +50,9 @@ $(document).ready(function () {
   // Redirect if not logged in
   if (isLoggedIn !== 'true') {
     console.log("Redirecting to signin.html because user is not logged in.");
-    window.location.replace('index.html');
+    window.location.replace('html/index.html'); 
     return;
   }
-
-
 
   // Example old profiles (pre-existing users)
   const oldProfiles = [
@@ -22,7 +61,7 @@ $(document).ready(function () {
       modules: ["COM161", "COM115", "COM123"],
       studyTime: "Morning",
       studyStyle: "2",
-      photo: "Ksaud.jpg",
+      photo: "jpg/Ksaud.jpg",
       email: "ksaud@gmail.com"
     },
     {
@@ -30,16 +69,32 @@ $(document).ready(function () {
       modules: ["COM188", "COM120", "COM240"],
       studyTime: "Evening",
       studyStyle: "3",
-      photo: "Aron.jpg",
+      photo: "jpg/Aron.jpg",
       email: "aronshav@gmail.com"
     },
     {
       name: "Tara",
       modules: ["COM130", "COM125", "COM325"],
       studyTime: "Afternoon",
-      studyStyle: "Solo",
-      photo: "Tara.jpg",
+      studyStyle: "2",
+      photo: "jpg/Tara.jpg",
       email: "tara12@gmail.com"
+    },
+    {
+      name: "Aliza",
+      modules: ["COM250", "COM260", "COM325"],
+      studyTime: "Afternoon",
+      studyStyle: "4",
+      photo: "jpg\Aliza.jpg",
+      email: "alizaad0@gmail.com"
+    },
+    {
+      name: "Aana",
+      modules: ["COM310", "COM315", "COM320"],
+      studyTime: "Afternoon",
+      studyStyle: "4",
+      photo: "jpg/Aana.jpg",
+      email: "aanaa1@gmail.com"
     }
   ];
 
@@ -54,11 +109,13 @@ $(document).ready(function () {
     const email = $("#email").val().trim();
     const photoFile = $("#photo")[0].files[0];
 
-
     if (!name || modules.length === 0 || !studyTime || !studyStyle || !photoFile) {
       alert("Please fill in all fields and upload a photo.");
       return;
     }
+
+    // Save userName in cookie for 5 days
+    setCookie("userName", name, 5);
 
     // Show verification message
     $("#verification-message").html(`<p>✅ Profile for <strong>${name}</strong> created successfully!</p>`);
@@ -70,7 +127,7 @@ $(document).ready(function () {
       studyTime,
       studyStyle,
       email,
-      photo: URL.createObjectURL(photoFile), 
+      photo: URL.createObjectURL(photoFile),
     };
 
     // Match with old profiles
@@ -86,7 +143,7 @@ $(document).ready(function () {
     oldProfiles.push(newProfile);
 
     // Display matches
-    const container =$ ("#matches-container");
+    const container = $("#matches-container");
     container.empty();
 
     if (matches.length > 0) {
@@ -109,9 +166,9 @@ $(document).ready(function () {
     }
   });
 
-
-  $('#logoutBtn').on('click', function() {
-  localStorage.removeItem('isLoggedIn');
-  window.location.href = 'index.html';
-});
+  // Logout button
+  $('#logoutBtn').on('click', function () {
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = 'html/index.html';
+  });
 });
