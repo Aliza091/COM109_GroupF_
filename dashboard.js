@@ -9,7 +9,7 @@ $(document).ready(function () {
   // Redirect if not logged in
   if (isLoggedIn !== 'true') {
     console.log("Redirecting to signin.html because user is not logged in.");
-    window.location.href = 'signin.html';
+    window.location.replace('signin.html');
     return;
   }
 
@@ -22,21 +22,24 @@ $(document).ready(function () {
       modules: ["COM161", "COM115", "COM123"],
       studyTime: "Morning",
       studyStyle: "2",
-      photo: "css/Ksaud.jpg"
+      photo: "css/Ksaud.jpg",
+      email: "ksaud@gmail.com"
     },
     {
       name: "Aron",
       modules: ["COM188", "COM120", "COM240"],
       studyTime: "Evening",
       studyStyle: "3",
-      photo: "css/Aron.jpg"
+      photo: "css/Aron.jpg",
+      email: "aronshav@gmail.com"
     },
     {
       name: "Tara",
       modules: ["COM130", "COM125", "COM325"],
       studyTime: "Afternoon",
       studyStyle: "Solo",
-      photo: "css/Tara.jpg"
+      photo: "css/Tara.jpg",
+      email: "tara12@gmail.com"
     }
   ];
 
@@ -48,7 +51,9 @@ $(document).ready(function () {
     const modules = $("#modules").val() || [];
     const studyTime = $("#studyTime").val();
     const studyStyle = $("#studyStyle").val();
+    const email = $("#email").val().trim();
     const photoFile = $("#photo")[0].files[0];
+
 
     if (!name || modules.length === 0 || !studyTime || !studyStyle || !photoFile) {
       alert("Please fill in all fields and upload a photo.");
@@ -64,7 +69,8 @@ $(document).ready(function () {
       modules,
       studyTime,
       studyStyle,
-      photo: URL.createObjectURL(photoFile)
+      email,
+      photo: URL.createObjectURL(photoFile), 
     };
 
     // Match with old profiles
@@ -80,6 +86,9 @@ $(document).ready(function () {
     oldProfiles.push(newProfile);
 
     // Display matches
+    const container =$ ("#matches-container");
+    container.empty();
+
     if (matches.length > 0) {
       let html = "";
       matches.forEach(match => {
@@ -90,6 +99,7 @@ $(document).ready(function () {
             <p>Modules: ${match.modules.join(", ")}</p>
             <p>Study Time: ${match.studyTime}</p>
             <p>Study Style: ${match.studyStyle}</p>
+            <p>Email: ${match.email}</p>
           </div>
         `;
       });

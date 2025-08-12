@@ -27,6 +27,10 @@
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" />
 
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+
       <label for="modules">Select Your Modules:</label>
       <select id="modules" name="modules" multiple size="6">
         <option value="COM161">Problem Solving for Computing</option>
@@ -78,11 +82,17 @@
     <button id="logoutBtn">Logout</button>
 
     <section>
-      <h2>Matched Study Buddies</h2>
-      <div id="matches-container">
+  <h2>Matched Study Buddies</h2>
+  <div id="matches-container">
+    <div class="match-card">
+      <img class="profile-pic" src="profile.jpg" alt="Profile Picture" />
+      <div>
         <p>Fill and Submit to get your matches.</p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
   </main>
 
   <footer>
