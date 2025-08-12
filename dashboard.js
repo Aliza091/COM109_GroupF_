@@ -9,7 +9,7 @@ $(document).ready(function () {
   // Redirect if not logged in
   if (isLoggedIn !== 'true') {
     console.log("Redirecting to signin.html because user is not logged in.");
-    window.location.replace('signin.html');
+    window.location.replace('index.html');
     return;
   }
 
@@ -112,6 +112,6 @@ $(document).ready(function () {
 
   $('#logoutBtn').on('click', function() {
   localStorage.removeItem('isLoggedIn');
-  window.location.href = 'signin.html';
+  window.location.href = 'index.html';
 });
 });
