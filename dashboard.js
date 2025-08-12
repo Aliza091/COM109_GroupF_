@@ -22,7 +22,7 @@ $(document).ready(function () {
       modules: ["COM161", "COM115", "COM123"],
       studyTime: "Morning",
       studyStyle: "2",
-      photo: "css/Ksaud.jpg",
+      photo: "Ksaud.jpg",
       email: "ksaud@gmail.com"
     },
     {
@@ -30,7 +30,7 @@ $(document).ready(function () {
       modules: ["COM188", "COM120", "COM240"],
       studyTime: "Evening",
       studyStyle: "3",
-      photo: "css/Aron.jpg",
+      photo: "Aron.jpg",
       email: "aronshav@gmail.com"
     },
     {
@@ -38,7 +38,7 @@ $(document).ready(function () {
       modules: ["COM130", "COM125", "COM325"],
       studyTime: "Afternoon",
       studyStyle: "Solo",
-      photo: "css/Tara.jpg",
+      photo: "Tara.jpg",
       email: "tara12@gmail.com"
     }
   ];
