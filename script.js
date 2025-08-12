@@ -61,7 +61,7 @@ $(document).ready(function () {
 
       if (email === "admin@example.com" && password === "password123") {
         localStorage.setItem("isLoggedIn", "true");
-        window.location.href = "/dashboard.html";
+        window.location.href = "dashboard.html";
       } else {
         $("#generalError p").text("Invalid email or password.");
         $("#generalError").show();

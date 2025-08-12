@@ -4,6 +4,7 @@ $(document).ready(function () {
   // Get login status from localStorage
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   console.log("isLoggedIn:", isLoggedIn);
+  alert("isLoggedIn value: " + isLoggedIn);
 
   // Redirect if not logged in
   if (isLoggedIn !== 'true') {
@@ -11,6 +12,8 @@ $(document).ready(function () {
     window.location.href = 'signin.html';
     return;
   }
+
+
 
   // Example old profiles (pre-existing users)
   const oldProfiles = [
@@ -95,6 +98,8 @@ $(document).ready(function () {
       $("#matches-container").html("<p>No matches found. Try adjusting your preferences.</p>");
     }
   });
+
+
   $('#logoutBtn').on('click', function() {
   localStorage.removeItem('isLoggedIn');
   window.location.href = 'signin.html';
