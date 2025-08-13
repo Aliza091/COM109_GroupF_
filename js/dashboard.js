@@ -18,7 +18,7 @@ $(document).ready(function () {
   }
 
   updateDateTime();
-  setInterval(updateDateTime, 20000);
+  setInterval(updateDateTime, 1000);
 
   // Cookie helper functions
   function setCookie(name, value, days) {
@@ -50,7 +50,7 @@ $(document).ready(function () {
   // Redirect if not logged in
   if (isLoggedIn !== 'true') {
     console.log("Redirecting to signin.html because user is not logged in.");
-    window.location.replace('html/index.html'); 
+    window.location.replace('index.html'); 
     return;
   }
 
@@ -61,7 +61,7 @@ $(document).ready(function () {
       modules: ["COM161", "COM115", "COM123"],
       studyTime: "Morning",
       studyStyle: "2",
-      photo: "jpg/Ksaud.jpg",
+      photo: "../jpg/Ksaud.jpg",
       email: "ksaud@gmail.com"
     },
     {
@@ -69,7 +69,7 @@ $(document).ready(function () {
       modules: ["COM188", "COM120", "COM240"],
       studyTime: "Evening",
       studyStyle: "3",
-      photo: "jpg/Aron.jpg",
+      photo: "../jpg/Aron.jpg",
       email: "aronshav@gmail.com"
     },
     {
@@ -77,7 +77,7 @@ $(document).ready(function () {
       modules: ["COM130", "COM125", "COM325"],
       studyTime: "Afternoon",
       studyStyle: "2",
-      photo: "jpg/Tara.jpg",
+      photo: "../jpg/Tara.jpg",
       email: "tara12@gmail.com"
     },
     {
@@ -85,7 +85,7 @@ $(document).ready(function () {
       modules: ["COM250", "COM260", "COM325"],
       studyTime: "Afternoon",
       studyStyle: "4",
-      photo: "jpg\Aliza.jpg",
+      photo: "../jpg/Aliza.jpg",
       email: "alizaad0@gmail.com"
     },
     {
@@ -93,7 +93,7 @@ $(document).ready(function () {
       modules: ["COM310", "COM315", "COM320"],
       studyTime: "Afternoon",
       studyStyle: "4",
-      photo: "jpg/Aana.jpg",
+      photo: "../jpg/Aana.jpg",
       email: "aanaa1@gmail.com"
     }
   ];
@@ -169,6 +169,6 @@ $(document).ready(function () {
   // Logout button
   $('#logoutBtn').on('click', function () {
     localStorage.removeItem('isLoggedIn');
-    window.location.href = 'html/index.html';
+    window.location.href = 'index.html';
   });
 });

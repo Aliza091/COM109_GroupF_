@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+.login-page {
+  background: url('../jpg/computing.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  color: #fff; /* optional */
+  position: relative
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -20,9 +29,9 @@ body, html {
 
 /* Header */
 .main-header {
-  background-color: #004080;
+  background-color: rgba(0, 0, 0, 0.4);
   color: white;
-  padding: 100px;
+  padding: 370px;
   text-align: center;
 }
 
@@ -34,24 +43,39 @@ body, html {
 
 /* Outer container */
 .container {
-  width: 100%;
+  width: 4000px;
   max-width: 400px;
-  padding: 1rem;
+  padding: 0.7rem;
 }
 
 /* Main white box */
 .login-wrapper {
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
   padding: 2.5rem 2rem;
   border-radius: 10px;
   box-shadow: 0 6px 20px rgb(0 0 0 / 0.1);
   text-align: center;
+
+/* Slide in from right animation */
+  animation: slideInRight 0.7s ease forwards;
+}
+
+/* Slide animation keyframes */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Header */
 .header .logo {
   font-size: 2.5rem;
-  background-color: #2563eb;
+  background-color:rgba(255, 255, 255, 0.9);
   color: white;
   display: inline-flex;
   padding: 12px;
@@ -238,6 +262,7 @@ input::placeholder {
   background: linear-gradient(90deg, #1e40af 0%, #2563eb 100%);
 }
 
+
 /* Loading spinner styles */
 .loading-spinner {
   display: flex;
@@ -297,3 +322,13 @@ input::placeholder {
   text-decoration: underline;
 }
 
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
